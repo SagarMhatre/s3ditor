@@ -1,1 +1,124 @@
-Hello World
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="ISO-8859-1">
+      <title>S3ditor 1.0</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+      <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.46.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script language="javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+      <script language="javascript" type="text/javascript" src="bootstrap_tree/bootstrap-treeview.min.js"></script>
+      <script language="javascript" type="text/javascript" src="js/uiHandler.js"></script>
+      <script language="javascript" type="text/javascript" src="js/s3ditor.js"></script>
+
+      <script>
+         $(document)
+         		.ready(
+         				function() {
+         					    uiHandler.getInstance().init();
+         				   }
+         				);         
+      </script>
+
+      <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+   </head>
+   <body>
+      <div class="modal fade" id="loginDialog" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" >            
+              <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+            </div>
+            <div class="modal-body" id="authenticationForm" >
+                       <form role="form">
+                       <div class="form-group">
+                          <label for="accessKey">Access Key:</label>
+                          <input type="password" class="form-control" id="accessKey" value="AKIAJKIBNEFT2A2AUPMA" size=21 required="true" >
+                       </div>
+                       <div class="form-group">
+                          <label for="secretKey">Secret Key:</label>
+                          <input type="password" class="form-control" id="secretKey" value="r2OVYLB2unfYkyNDXVUaTCe3swOZHScPRVaFC7Df" size="41" required="true" >
+                       </div>
+
+
+                         <div class="form-group">
+                            <label for="region">Region:</label>
+                              <select  id="region" >
+                                <option value="us-east-1">US East (N. Virginia)</option>
+                                <option value="us-west-1">US West (N. California)</option>
+                                <option value="us-west-2">US West (Oregon)</option>
+                                <option value="eu-west-1">EU (Ireland)</option>
+                                <option value="eu-central-1">EU (Frankfurt)</option>
+                                <option value="ap-northeast-1">Asia Pacific (Tokyo)</option>
+                                 <option value="ap-northeast-2">Asia Pacific (Seoul)</option>
+                                <option value="ap-southeast-1">Asia Pacific (Singapore)</option>
+                                <option value="ap-southeast-2">Asia Pacific (Sydney)</option>
+                                <option value="sa-east-1">South America (Sao Paulo)</option>                              
+                              </select>           
+                         </div>
+                       <div class="form-group">
+                          <label for="bucketName">Bucket Name:</label>
+                          <input type="text" class="form-control" id="bucketName" value="tokyo.code" required="true" >
+                       </div>
+                       <!--
+                       <div class="checkbox">
+                          <label><input type="checkbox"> I  agree to the Terms & Conditions</label>
+                       </div>
+                       -->
+                       <button  type="button" class="btn btn-success btn-block" onclick="uiHandler.getInstance().login()" >
+                       <span class="glyphicon glyphicon-off"></span>
+                       Login 
+                       </button>
+                       </form>
+            </div>
+          </div>      
+        </div>
+      </div>
+
+      
+
+      <div class="modal fade" id="messageDialog" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" id="messageDialogCloseButton" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><div id="header"> </div></h4>
+            </div>
+            <div class="modal-body">
+                     <div id="message">                       
+                     </div> 
+            </div>            
+          </div>      
+        </div>
+      </div>
+
+
+      <div id="editor" class="container-fluid" class="hidden">
+          <div class="row">
+            <textarea id="editArea" class="fill" style="width: 100%"  > 
+            </textarea>
+          </div>
+      </div>
+
+      <div class="modal fade" id="directoryDialog" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Click on a file to open</h4>
+            </div>
+            <div class="modal-body">
+                     <div id="directoryTree"> 
+                       
+                     </div> 
+            </div>            
+          </div>      
+        </div>
+      </div>
+
+
+
+
+   </body>
+</html>
