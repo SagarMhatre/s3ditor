@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Evernote Export</title>
+  <title>S3ditor README</title>
   <basefont face="Tahoma" size="2" />
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="exporter-version" content="Evernote Windows/277494; Windows/10.0.10586 (Win64);"/>
@@ -40,31 +40,7 @@
 
 <ul style="margin-block-start:;margin-block-end:;padding-inline-start:;box-sizing:border-box;margin-top:0px;">
 <li style="box-sizing:border-box;">Login into your AWS Console and go to IAM. </li>
-<li style="box-sizing:border-box;">Create a policy with full access to your bucket</li>
-</ul>
-
-<pre lang="data" style="font-family:Consolas,&quot;Liberation Mono&quot;,Menlo,Courier,monospace;margin-block-start:;margin-block-end:;box-sizing:border-box;overflow-x:auto;overflow-y:auto;font-size:13.6px;margin-top:0px;margin-bottom:16px;line-height:19.7167px;-x-system-font:;padding-top:16px;padding-bottom:16px;background-color:rgb(247, 247, 247);border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;"><code style="font-family:Consolas,&quot;Liberation Mono&quot;,Menlo,Courier,monospace;box-sizing:border-box;font-size:13.6px;border-top-left-radius:3px;border-bottom-left-radius:3px;border-top-color:rgb(51, 51, 51);border-bottom-color:rgb(51, 51, 51);line-height:19.7167px;">{
-    &quot;Version&quot;: &quot;2012-10-17&quot;,
-    &quot;Statement&quot;: [
-        {
-            &quot;Sid&quot;: &quot;s3ditor&quot;,
-            &quot;Effect&quot;: &quot;Allow&quot;,
-            &quot;Action&quot;: [
-                &quot;s3:*&quot;
-            ],
-            &quot;Resource&quot;: [
-                &quot;arn:aws:s3:::mybucket&quot;
-            ]
-        }
-    ]
-}
-<span style="letter-spacing:-2.71667px;"></span></code></pre>
-
-<p style="margin-block-start:;margin-block-end:;box-sizing:border-box;margin-top:0px;">(You may be able to fine grain the access control. Just ensure that the policy has permissions to list all the files, get the file content &amp; update it)</p>
-
-<ul style="margin-block-start:;margin-block-end:;padding-inline-start:;box-sizing:border-box;margin-top:0px;">
-<li style="box-sizing:border-box;">Create a user with the above created Permission.</li>
-<li style="box-sizing:border-box;">Create an Access Key &amp; Download the Credentials. Open the CSV file that gets downloaded.</li>
+<li style="box-sizing:border-box;">Create a user with Permissions : AmazonS3FullAccess. (You may be able to fine grain the access control with your custom policy. Just ensure that the policy has permissions to list all the files, get the file content & update it) Create an Access Key & Download the Credentials. Open the CSV file that gets downloaded.</li>
 <li style="box-sizing:border-box;">Navigate to <a target="_blank" href="http://sagarmhatre.github.io/s3ditor/" style="color:rgb(64, 120, 192);text-decoration-color:rgb(64, 120, 192);text-decoration-line:none;box-sizing:border-box;">S3ditor</a>. Copy the Access Key Id &amp; Secret Access Key from the csv downloaded in the above step to the respective fields in the Login Form. Select your region &amp; type the name of your Bucket. Click Login</li>
 </ul>
 
