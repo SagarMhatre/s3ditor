@@ -18,27 +18,7 @@ S3ditor allows you to make changes to your static files hosted on AWS S3 bucket 
 </CORSConfiguration>
 ```
 * Login into your AWS Console and go to IAM. 
-* Create a policy with full access to your bucket
-```data
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "s3ditor",
-            "Effect": "Allow",
-            "Action": [
-                "s3:*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::mybucket"
-            ]
-        }
-    ]
-}
-```
-(You may be able to fine grain the access control. Just ensure that the policy has permissions to list all the files, get the file content & update it)
-* Create a user with the above created Permission.
-* Create an Access Key & Download the Credentials. Open the CSV file that gets downloaded.
+* Create a user with  Permissions : AmazonS3FullAccess. (You may be able to fine grain the access control with your custom policy. Just ensure that the policy has permissions to list all the files, get the file content & update it) Create an Access Key & Download the Credentials. Open the CSV file that gets downloaded.
 * Navigate to [S3ditor](http://sagarmhatre.github.io/s3ditor/). Copy the Access Key Id & Secret Access Key from the csv downloaded in the above step to the respective fields in the Login Form. Select your region & type the name of your Bucket. Click Login
 
 
