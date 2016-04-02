@@ -39,3 +39,7 @@ S3ditor allows you to make changes to your static files hosted on AWS S3 bucket 
         	]
         }
 ```
+#### Thanks to
+[jonmiles/bootstrap-treeview](https://github.com/jonmiles/bootstrap-treeview)
+&
+[cdolivet/EditArea](https://github.com/cdolivet/EditArea)
