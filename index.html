@@ -2,15 +2,25 @@
 <html>
    <head>
       <meta charset="ISO-8859-1">
-      <title>S3ditor 1.0</title>
+      <title>S3ditor 1.1</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
       <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.46.min.js"></script>
+
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+      <!-- The raw files from git do not have the proper Content-Type headers if they are on any branch other than the gh-pages branch. The below commented links therefore work on Mozilla but not on IE & Chrome -->
+      <!-- 
+      <script src="https://raw.githubusercontent.com/cdolivet/EditArea/master/edit_area/edit_area_full.js"/>
+      <script src="https://raw.githubusercontent.com/jonmiles/bootstrap-treeview/master/src/js/bootstrap-treeview.js"/>      
+      -->      
+      <!--  The Solution was then to use https://rawgit.com/ that serves raw files directly from GitHub with proper Content-Type headers. -->
       <script language="javascript" type="text/javascript" src="https://cdn.rawgit.com/cdolivet/EditArea/master/edit_area/edit_area_full.js"></script>
       <script language="javascript" type="text/javascript" src="https://cdn.rawgit.com/jonmiles/bootstrap-treeview/master/src/js/bootstrap-treeview.js"></script>
-      <script language="javascript" type="text/javascript" src="js/uiHandler-1.0.min.js"></script>
-      <script language="javascript" type="text/javascript" src="js/s3ditor-1.0.min.js"></script>
+
+      <!-- S3ditor specific files -->
+      <script language="javascript" type="text/javascript" src="js/s3ditor-1.1.min.js"></script>
+      <script language="javascript" type="text/javascript" src="js/uiHandler-1.1.min.js"></script>
 
       <script>
          $(document)
@@ -28,8 +38,8 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header" >            
-              <div align="left"><h4><span class="glyphicon glyphicon-lock"></span> Login</h4></div>
-               <div align="right"><a href="help.html" target="_blank">Help</a> </div>
+                <div align="left"><h4><span class="glyphicon glyphicon-lock"></span> Login</h4></div>
+                <div align="right"><a href="README.html" target="_blank">Help</a> </div>
             </div>
             <div class="modal-body" id="authenticationForm" >
                        <form role="form">
@@ -41,6 +51,7 @@
                           <label for="secretKey">Secret Key:</label>
                           <input type="password" class="form-control" id="secretKey" value="" size="41" required="true" >
                        </div>
+
                          <div class="form-group">
                             <label for="region">Region:</label>
                               <select  id="region" >
@@ -60,6 +71,7 @@
                           <label for="bucketName">Bucket Name:</label>
                           <input type="text" class="form-control" id="bucketName" value="" required="true" >
                        </div>
+                       <!-- TODO : Add Terms & Conditions of usage -->
                        <!--
                        <div class="checkbox">
                           <label><input type="checkbox"> I  agree to the Terms & Conditions</label>
@@ -95,8 +107,8 @@
 
       <div id="editor" class="container-fluid" class="hidden">
           <div class="row">
-            <textarea id="editArea" class="fill" style="width: 100%"  >
-                           </textarea>
+            <textarea id="editArea" class="fill" style="width: 100%"  > 
+            </textarea>
           </div>
       </div>
 
@@ -108,8 +120,7 @@
               <h4 class="modal-title">Click on a file to open</h4>
             </div>
             <div class="modal-body">
-                     <div id="directoryTree"> 
-                       
+                     <div id="directoryTree">                        
                      </div> 
             </div>            
           </div>      
